@@ -1,7 +1,6 @@
 # Vaadin+JAAS example that works with JBoss
 
-### Note, you must use JBoss AS 7.1 instead of latest WildFly. With it there is an obscurce bug when redirecting unauthenticated requests. Redirected POST request done by Vaadin client side somehow becomes GET request when it arrives to VaadinServlet -> FAIL
-
+#### Note, that this example is broken on Wildfly and TomEE. Works with  JBoss AS 7.1 and Glassfish. Broken servers seem to be having issue forwarding unauthenticated POST requests. Forwarded POST request done by Vaadin client side initialization somehow becomes GET request when it arrives to VaadinServlet -> FAIL.  Possible [workaround is to use 307 redirect](https://github.com/mstahv/vaadin-cdi-jaas-jbossas-example/tree/workaround).
 
 ##How it all works:
 

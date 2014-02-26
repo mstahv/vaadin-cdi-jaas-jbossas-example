@@ -3,13 +3,18 @@ package com.vaadin.cdi.example.view;
 import com.vaadin.cdi.example.logging.LoggableEvent;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.ExternalResource;
 import com.vaadin.server.Page;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Link;
 import com.vaadin.ui.VerticalLayout;
+
 import javax.inject.Inject;
+
 import org.vaadin.maddon.layouts.MHorizontalLayout;
 import org.vaadin.maddon.layouts.MVerticalLayout;
 
@@ -75,6 +80,8 @@ public abstract class AbstractView extends CustomComponent implements View {
         
         navBar.addComponent(new NavigationButton("Login view",
                 LoginView.VIEW_ID));
+        
+        navBar.addComponent(new Link("go to '/secure'", new ExternalResource("secure/")));
 
         return navBar;
     }
